@@ -74,22 +74,35 @@ void MemList::displayReserved()
 MemList::MemList(unsigned int s_addr, unsigned int block_size)
 {
     // To be implemented(replace the two lines below)
-    free_head = NULL;
-    reserved_head = NULL;
+    free_head = mem_size;
+    reserved_head = mem_start_addr;
 }
 
-// Find the first MemBlock in the Free list which greater than or equal to the amount requested(via 
-// the function argument). Update the MemBlock in the Free List - change the start_addr and mem_size
+// Find the first MemBlock in the Free list which greater than or equal
+// to the amount requested(via 
+// the function argument).
+// Update the MemBlock in the Free List - change the start_addr and mem_size
 // by the amount of memory being reserved.
 // Add the newly reserved memory into a new MemBlock in the Reserved List
-// If no MemBlock in the Free List is large enough return NULL, otherwise return a pointer to 
+// If no MemBlock in the Free List is large enough return NULL,
+// otherwise return a pointer to 
 // the new MemBlock in the Reserved List.
 //
 // Level 1
 //
 MemBlock * MemList::reserveMemBlock(unsigned int block_size)
-{
-    // To be implemented
+	{
+    // 
+    	if (freeSize() >= block_size)
+
+	mem_size = block_size;
+	mem_start_addr = block_size - mem_size; 
+			
+	MemBlock * getNext();
+        void setNext(MemBlock *);
+		
+			return getNext();
+	}
     return NULL;
 }
 
@@ -98,19 +111,22 @@ MemBlock * MemList::reserveMemBlock(unsigned int block_size)
 //
 // Level 1
 //
-unsigned int MemList::reservedSize()
+unsigned int MemList::reservedSize(int res_size)
 {
-    // To be implemented
-    return 0;
+    for (i = 0; i <= block_size; i++)
+	    res_size = 
+    return res_size;
 }
 
 // Return the total size of all blocks in the Free List
 //
 // Level 1
-unsigned int MemList::freeSize()
+unsigned int MemList::freeSize(int free_size)
 {
-    // To be implemented
-    return 0;
+    for (i = 0; i <
+	free_size = total size - res_size
+
+    return free_size;
 }
 
 /////////////////////////////////////////////////////////////////////////////////
